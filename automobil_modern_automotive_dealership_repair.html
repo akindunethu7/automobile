@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automobil - Premium Auto Dealership & Service Center</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#E52727',
+                            darkred: '#C01E1E',
+                            dark: '#111318',
+                            darker: '#0B0C0E',
+                            card: '#1A1D24',
+                            accent: '#F39C12'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Teko', 'sans-serif'],
+                        body: ['Work Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles & Dynamic Animations */
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background-color: #0B0C0E;
+            color: #E2E8F0;
+        }
+        .heading-font {
+            font-family: 'Teko', sans-serif;
+            letter-spacing: 0.5px;
+        }
+        .hero-slide {
+            transition: opacity 0.8s ease-in-out;
+        }
+        .skew-badge {
+            transform: skewX(-12deg);
+        }
+        .unskew {
+            transform: skewX(12deg);
+        }
+        /* Glassmorphism elements */
+        .glass-panel {
+            background: rgba(26, 29, 36, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0C0E;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E52727;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- 1. TOP BAR -->
+    <div class="bg-brand-darker border-b border-gray-800/80 py-2.5 text-xs text-gray-400 hidden md:block">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <div class="flex items-center space-x-6">
+                <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-location-dot text-brand-red"></i> 742 Evergreen Terrace, Auto City, NY
+                </span>
+                <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-clock text-brand-red"></i> Mon - Sat: 8:00 AM - 7:00 PM
+                </span>
+                <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-brand-red"></i> +1 (800) 555-AUTO
+                </span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="flex space-x-3 text-sm">
+                    <a href="#" class="hover:text-brand-red transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-brand-red transition-colors"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="hover:text-brand-red transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-brand-red transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                <span class="text-gray-700">|</span>
+                <a href="#quote-modal" onclick="toggleModal()" class="text-brand-red hover:underline font-semibold flex items-center gap-1">
+                    <i class="fa-solid fa-shield-halved"></i> Schedule Inspection
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. MAIN NAVIGATION HEADER -->
+    <header class="sticky top-0 z-50 bg-brand-dark/95 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="bg-brand-red text-white p-2.5 rounded-lg skew-badge shadow-lg shadow-brand-red/30">
+                        <i class="fa-solid fa-car-side text-2xl unskew"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="heading-font text-3xl font-bold tracking-wider text-white leading-none">AUTO<span class="text-brand-red">MOBIL</span></span>
+                        <span class="text-[10px] tracking-widest text-gray-400 uppercase font-semibold">Sales & Expert Service</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-8 font-medium text-sm tracking-wide">
+                    <a href="#hero" class="text-brand-red font-semibold transition-colors">HOME</a>
+                    <a href="#about" class="hover:text-brand-red text-gray-300 transition-colors">ABOUT US</a>
+                    <a href="#services" class="hover:text-brand-red text-gray-300 transition-colors">SERVICES</a>
+                    <a href="#inventory" class="hover:text-brand-red text-gray-300 transition-colors">INVENTORY</a>
+                    <a href="#news" class="hover:text-brand-red text-gray-300 transition-colors">NEWS & TIPS</a>
+                    <a href="#footer" class="hover:text-brand-red text-gray-300 transition-colors">CONTACT</a>
+                </nav>
+
+                <!-- Header Actions -->
+                <div class="hidden sm:flex items-center space-x-4">
+                    <a href="tel:+18005552886" class="flex items-center gap-3 text-left">
+                        <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-brand-red border border-gray-700">
+                            <i class="fa-solid fa-headset text-lg"></i>
+                        </div>
+                        <div>
+                            <span class="block text-[11px] text-gray-400 uppercase font-medium">Need Assistance?</span>
+                            <span class="block text-sm font-bold text-white tracking-wide">(800) 555-AUTO</span>
+                        </div>
+                    </a>
+                    <button onclick="toggleModal()" class="bg-brand-red hover:bg-brand-darkred text-white font-semibold py-3 px-6 rounded-md text-sm transition-all transform hover:-translate-y-0.5 shadow-lg shadow-brand-red/20 uppercase tracking-wider">
+                        Book Service
+                    </button>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="lg:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-brand-darker border-b border-gray-800 px-4 pt-3 pb-6 space-y-3">
+            <a href="#hero" class="block py-2 text-brand-red font-semibold">HOME</a>
+            <a href="#about" class="block py-2 text-gray-300 hover:text-brand-red">ABOUT US</a>
+            <a href="#services" class="block py-2 text-gray-300 hover:text-brand-red">SERVICES</a>
+            <a href="#inventory" class="block py-2 text-gray-300 hover:text-brand-red">INVENTORY</a>
+            <a href="#news" class="block py-2 text-gray-300 hover:text-brand-red">NEWS & TIPS</a>
+            <a href="#footer" class="block py-2 text-gray-300 hover:text-brand-red">CONTACT</a>
+            <div class="pt-4 border-t border-gray-800">
+                <button onclick="toggleModal()" class="w-full bg-brand-red hover:bg-brand-darkred text-white font-semibold py-3 px-4 rounded-md text-center uppercase tracking-wider text-sm">
+                    Book Service
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. HERO BANNER / SLIDER -->
+    <section id="hero" class="relative min-h-[620px] lg:min-h-[720px] flex items-center bg-brand-darker overflow-hidden">
+        
+        <!-- Background Slider Container -->
+        <div class="absolute inset-0 z-0">
+            <!-- Slide 1 -->
+            <div class="hero-slide absolute inset-0 opacity-100 bg-cover bg-center" style="background-image: linear-gradient(to right, rgba(11, 12, 14, 0.95), rgba(11, 12, 14, 0.4)), url('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1920&q=80');"></div>
+            <!-- Slide 2 -->
+            <div class="hero-slide absolute inset-0 opacity-0 bg-cover bg-center" style="background-image: linear-gradient(to right, rgba(11, 12, 14, 0.95), rgba(11, 12, 14, 0.4)), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&q=80');"></div>
+            <!-- Slide 3 -->
+            <div class="hero-slide absolute inset-0 opacity-0 bg-cover bg-center" style="background-image: linear-gradient(to right, rgba(11, 12, 14, 0.95), rgba(11, 12, 14, 0.4)), url('https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=1920&q=80');"></div>
+        </div>
+
+        <!-- Hero Content Overlay -->
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 w-full">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-2 bg-brand-red/20 border border-brand-red/40 text-brand-red px-3 py-1 rounded-full text-xs uppercase font-bold tracking-widest mb-6">
+                    <i class="fa-solid fa-certificate"></i> Certified European & Domestic Experts
+                </div>
+                <h1 class="heading-font text-5xl sm:text-7xl lg:text-8xl font-bold uppercase leading-tight text-white mb-4">
+                    PREMIUM <span class="text-brand-red">AUTO CARE</span> & LUXURY CAR SALES
+                </h1>
+                <p class="text-gray-300 text-base sm:text-lg mb-8 leading-relaxed font-light">
+                    Experience unrivaled automotive diagnostics, certified repairs, and an exclusive showcase of hand-selected pre-owned luxury vehicles with guaranteed performance.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#inventory" class="bg-brand-red hover:bg-brand-darkred text-white font-bold py-4 px-8 rounded-md text-center uppercase tracking-wider text-sm transition-all transform hover:-translate-y-1 shadow-lg shadow-brand-red/30 flex items-center justify-center gap-2">
+                        Explore Vehicles <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <button onclick="toggleModal()" class="border-2 border-gray-600 hover:border-brand-red text-white hover:text-brand-red font-bold py-4 px-8 rounded-md text-center uppercase tracking-wider text-sm transition-all flex items-center justify-center gap-2">
+                        Book Appointment
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slider Navigation Controls -->
+        <div class="absolute right-6 bottom-10 z-20 hidden md:flex items-center space-x-3">
+            <button onclick="prevSlide()" class="w-12 h-12 rounded-full border border-gray-700 bg-brand-dark/80 text-white hover:bg-brand-red hover:border-brand-red transition-all flex items-center justify-center">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button onclick="nextSlide()" class="w-12 h-12 rounded-full border border-gray-700 bg-brand-dark/80 text-white hover:bg-brand-red hover:border-brand-red transition-all flex items-center justify-center">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- 4. VEHICLE QUICK SEARCH / FILTER BAR -->
+    <div class="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 sm:-mt-20">
+        <div class="glass-panel rounded-xl p-6 shadow-2xl">
+            <div class="flex items-center gap-3 mb-4 pb-3 border-b border-gray-800">
+                <i class="fa-solid fa-filter text-brand-red text-xl"></i>
+                <h3 class="heading-font text-2xl font-bold uppercase text-white tracking-wider">Quick Search Vehicles</h3>
+            </div>
+            <form onsubmit="event.preventDefault(); filterVehicles();" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
+                <!-- Make Dropdown -->
+                <div>
+                    <label class="block text-xs uppercase font-semibold text-gray-400 mb-1">Make</label>
+                    <select id="filter-make" class="w-full bg-brand-dark border border-gray-700 rounded-md py-3 px-3 text-white text-sm focus:outline-none focus:border-brand-red">
+                        <option value="all">All Makes</option>
+                        <option value="BMW">BMW</option>
+                        <option value="Porsche">Porsche</option>
+                        <option value="Audi">Audi</option>
+                        <option value="Mercedes-Benz">Mercedes-Benz</option>
+                    </select>
+                </div>
+                <!-- Model Dropdown -->
+                <div>
+                    <label class="block text-xs uppercase font-semibold text-gray-400 mb-1">Vehicle Type</label>
+                    <select id="filter-type" class="w-full bg-brand-dark border border-gray-700 rounded-md py-3 px-3 text-white text-sm focus:outline-none focus:border-brand-red">
+                        <option value="all">All Types</option>
+                        <option value="Sedan">Sedan</option>
+                        <option value="SUV">SUV</option>
+                        <option value="Coupe">Coupe / Sports</option>
+                    </select>
+                </div>
+                <!-- Min Year -->
+                <div>
+                    <label class="block text-xs uppercase font-semibold text-gray-400 mb-1">Year Range</label>
+                    <select class="w-full bg-brand-dark border border-gray-700 rounded-md py-3 px-3 text-white text-sm focus:outline-none focus:border-brand-red">
+                        <option>2020 - 2024</option>
+                        <option>2016 - 2019</option>
+                        <option>2010 - 2015</option>
+                    </select>
+                </div>
+                <!-- Price Range -->
+                <div>
+                    <label class="block text-xs uppercase font-semibold text-gray-400 mb-1">Price Range</label>
+                    <select class="w-full bg-brand-dark border border-gray-700 rounded-md py-3 px-3 text-white text-sm focus:outline-none focus:border-brand-red">
+                        <option>$30,000 - $60,000</option>
+                        <option>$60,000 - $100,000</option>
+                        <option>$100,000+</option>
+                    </select>
+                </div>
+                <!-- Submit Button -->
+                <div class="flex items-end">
+                    <button type="submit" class="w-full bg-brand-red hover:bg-brand-darkred text-white font-bold py-3 px-4 rounded-md text-sm uppercase tracking-wider transition-colors flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-magnifying-glass"></i> Search Cars
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 5. FEATURED SERVICES GRID -->
+    <section id="services" class="py-24 bg-brand-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-red uppercase font-bold tracking-widest text-xs">What We Offer</span>
+                <h2 class="heading-font text-5xl font-bold uppercase text-white mt-1">EXPERT AUTOMOTIVE SERVICES</h2>
+                <div class="w-20 h-1 bg-brand-red mx-auto mt-4"></div>
+                <p class="text-gray-400 mt-4 text-sm sm:text-base">We provide full-spectrum repair and maintenance options utilizing state-of-the-art computer diagnostic equipment and original parts.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Service Card 1 -->
+                <div class="bg-brand-card rounded-xl overflow-hidden border border-gray-800 hover:border-brand-red/50 transition-all duration-300 group">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=800&q=80" onerror="this.src='https://placehold.co/800x600/1A1D24/E52727?text=Computer+Diagnostics'" alt="Engine Diagnostics" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-card to-transparent"></div>
+                        <div class="absolute top-4 right-4 bg-brand-red text-white p-3 rounded-lg shadow-lg">
+                            <i class="fa-solid fa-microchip text-2xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="heading-font text-2xl font-bold text-white group-hover:text-brand-red transition-colors">Computer Diagnostics</h3>
+                        <p class="text-gray-400 text-sm mt-2 leading-relaxed">Pinpoint complex electrical, transmission, and engine sensor issues with factory OBD scanner tools.</p>
+                        <a href="#quote-modal" onclick="toggleModal()" class="inline-flex items-center gap-2 text-brand-red text-xs font-bold uppercase tracking-wider mt-4 hover:underline">
+                            Book Diagnostics <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="bg-brand-card rounded-xl overflow-hidden border border-gray-800 hover:border-brand-red/50 transition-all duration-300 group">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=800&q=80" onerror="this.src='https://placehold.co/800x600/1A1D24/E52727?text=Brake+Service'" alt="Brake Repair" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-card to-transparent"></div>
+                        <div class="absolute top-4 right-4 bg-brand-red text-white p-3 rounded-lg shadow-lg">
+                            <i class="fa-solid fa-compact-disc text-2xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="heading-font text-2xl font-bold text-white group-hover:text-brand-red transition-colors">Brake System Repair</h3>
+                        <p class="text-gray-400 text-sm mt-2 leading-relaxed">Ceramic pad replacement, rotor resurfacing, fluid flush, and complete ABS system maintenance.</p>
+                        <a href="#quote-modal" onclick="toggleModal()" class="inline-flex items-center gap-2 text-brand-red text-xs font-bold uppercase tracking-wider mt-4 hover:underline">
+                            Book Repair <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="bg-brand-card rounded-xl overflow-hidden border border-gray-800 hover:border-brand-red/50 transition-all duration-300 group">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1578844251758-2f71da64c96f?auto=format&fit=crop&w=600&q=80" alt="Oil Service" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-card to-transparent"></div>
+                        <div class="absolute top-4 right-4 bg-brand-red text-white p-3 rounded-lg shadow-lg">
+                            <i class="fa-solid fa-oil-can text-2xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="heading-font text-2xl font-bold text-white group-hover:text-brand-red transition-colors">Synthetic Oil Service</h3>
+                        <p class="text-gray-400 text-sm mt-2 leading-relaxed">Full synthetic engine oil change, filter replacement, and multi-point vehicle safety check.</p>
+                        <a href="#quote-modal" onclick="toggleModal()" class="inline-flex items-center gap-2 text-brand-red text-xs font-bold uppercase tracking-wider mt-4 hover:underline">
+                            Book Oil Change <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="bg-brand-card rounded-xl overflow-hidden border border-gray-800 hover:border-brand-red/50 transition-all duration-300 group">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=600&q=80" alt="Tire Service" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-card to-transparent"></div>
+                        <div class="absolute top-4 right-4 bg-brand-red text-white p-3 rounded-lg shadow-lg">
+                            <i class="fa-solid fa-dharmachakra text-2xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="heading-font text-2xl font-bold text-white group-hover:text-brand-red transition-colors">Tires & Laser Alignment</h3>
+                        <p class="text-gray-400 text-sm mt-2 leading-relaxed">Precision 3D wheel alignment, high-speed balancing, tire mounting, and seasonal swaps.</p>
+                        <a href="#quote-modal" onclick="toggleModal()" class="inline-flex items-center gap-2 text-brand-red text-xs font-bold uppercase tracking-wider mt-4 hover:underline">
+                            Book Alignment <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 5 -->
+                <div class="bg-brand-card rounded-xl overflow-hidden border border-gray-800 hover:border-brand-red/50 transition-all duration-300 group">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=600&q=80" alt="Auto Detailing" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-card to-transparent"></div>
+                        <div class="absolute top-4 right-4 bg-brand-red text-white p-3 rounded-lg shadow-lg">
+                            <i class="fa-solid fa-spray-can-sparkles text-2xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="heading-font text-2xl font-bold text-white group-hover:text-brand-red transition-colors">Ceramic Detailing</h3>
+                        <p class="text-gray-400 text-sm mt-2 leading-relaxed">Multi-stage paint correction, ceramic hydrophobic coating, and interior steam deep clean.</p>
+                        <a href="#quote-modal" onclick="toggleModal()" class="inline-flex items-center gap-2 text-brand-red text-xs font-bold uppercase tracking-wider mt-4 hover:underline">
+                            Book Detailing <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="bg-brand-card rounded-xl overflow-hidden border border-gray-800 hover:border-brand-red/50 transition-all duration-300 group">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=600&q=80" alt="Body Work" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-card to-transparent"></div>
+                        <div class="absolute top-4 right-4 bg-brand-red text-white p-3 rounded-lg shadow-lg">
+                            <i class="fa-solid fa-car-burst text-2xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="heading-font text-2xl font-bold text-white group-hover:text-brand-red transition-colors">Collision & Bodywork</h3>
+                        <p class="text-gray-400 text-sm mt-2 leading-relaxed">Dent removal, OEM paint matching, frame realignment, and complete insurance claim assistance.</p>
+                        <a href="#quote-modal" onclick="toggleModal()" class="inline-flex items-center gap-2 text-brand-red text-xs font-bold uppercase tracking-wider mt-4 hover:underline">
+                            Request Estimate <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. FEATURED INVENTORY / CAR SHOWCASE -->
+    <section id="inventory" class="py-24 bg-brand-darker">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                <div>
+                    <span class="text-brand-red uppercase font-bold tracking-widest text-xs">Featured Fleet</span>
+                    <h2 class="heading-font text-5xl font-bold uppercase text-white mt-1">AVAILABLE VEHICLES FOR SALE</h2>
+                    <div class="w-20 h-1 bg-brand-red mt-3"></div>
+                </div>
+                <div class="mt-6 md:mt-0 flex gap-2">
+                    <button class="px-5 py-2 rounded-md bg-brand-red text-white text-xs font-bold uppercase tracking-wider">All Stock</button>
+                    <button class="px-5 py-2 rounded-md bg-brand-card hover:bg-gray-800 text-gray-300 text-xs font-bold uppercase tracking-wider transition-colors">Sedans</button>
+                    <button class="px-5 py-2 rounded-md bg-brand-card hover:bg-gray-800 text-gray-300 text-xs font-bold uppercase tracking-wider transition-colors">SUVs & Trucks</button>
+                </div>
+            </div>
+
+            <div id="car-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Vehicle Card 1 -->
+                <div class="car-card bg-brand-card rounded-xl overflow-hidden border border-gray-800 hover:border-gray-700 transition-all duration-300" data-make="Porsche" data-type="Coupe">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="Porsche 911 GT3" class="w-full h-full object-cover">
+                        <span class="absolute top-4 left-4 bg-brand-red text-white text-[11px] font-bold px-3 py-1 rounded uppercase tracking-wider">Featured</span>
+                        <div class="absolute bottom-4 right-4 bg-brand-darker/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-gray-700">
+                            <span class="heading-font text-2xl font-bold text-white">$189,500</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between text-xs text-gray-400 mb-2">
+                            <span>2023 MODEL</span>
+                            <span class="text-brand-red font-semibold">CERTIFIED PRE-OWNED</span>
+                        </div>
+                        <h3 class="heading-font text-3xl font-bold text-white mb-4">Porsche 911 GT3 Coupe</h3>
+                        
+                        <!-- Vehicle Specs Grid -->
+                        <div class="grid grid-cols-3 gap-2 pt-4 border-t border-gray-800/80 text-center text-xs">
+                            <div class="bg-brand-dark p-2.5 rounded-lg">
+                                <i class="fa-solid fa-gauge-high text-brand-red mb-1 block"></i>
+                                <span class="text-gray-400 block text-[10px]">MILEAGE</span>
+                                <span class="font-bold text-gray-200">4,200 mi</span>
+                            </div>
+                            <div class="bg-brand-dark p-2.5 rounded-lg">
+                                <i class="fa-solid fa-gears text-brand-red mb-1 block"></i>
+                                <span class="text-gray-400 block text-[10px]">TRANS</span>
+                                <span class="font-bold text-gray-200">Automatic</span>
+                            </div>
+                            <div class="bg-brand-dark p-2.5 rounded-lg">
+                                <i class="fa-solid fa-gas-pump text-brand-red mb-1 block"></i>
+                                <span class="text-gray-400 block text-[10px]">FUEL</span>
+                                <span class="font-bold text-gray-200">Gasoline</span>
+                            </div>
+                        </div>
+
+                        <button onclick="openCarModal('Porsche 911 GT3 Coupe', '$189,500', '4,200 mi')" class="w-full mt-6 bg-gray-800 hover:bg-brand-red text-white font-semibold py-3 px-4 rounded-md text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2">
+                            View Vehicle Details <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Vehicle Card 2 -->
+                <div class="car-card bg-brand-card rounded-xl overflow-hidden border border-gray-800 hover:border-gray-700 transition-all duration-300" data-make="BMW" data-type="Sedan">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=800&q=80" alt="BMW M5 Competition" class="w-full h-full object-cover">
+                        <span class="absolute top-4 left-4 bg-brand-red text-white text-[11px] font-bold px-3 py-1 rounded uppercase tracking-wider">Popular</span>
+                        <div class="absolute bottom-4 right-4 bg-brand-darker/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-gray-700">
+                            <span class="heading-font text-2xl font-bold text-white">$108,000</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between text-xs text-gray-400 mb-2">
+                            <span>2022 MODEL</span>
+                            <span class="text-brand-red font-semibold">ONE OWNER</span>
+                        </div>
+                        <h3 class="heading-font text-3xl font-bold text-white mb-4">BMW M5 Competition</h3>
+                        
+                        <div class="grid grid-cols-3 gap-2 pt-4 border-t border-gray-800/80 text-center text-xs">
+                            <div class="bg-brand-dark p-2.5 rounded-lg">
+                                <i class="fa-solid fa-gauge-high text-brand-red mb-1 block"></i>
+                                <span class="text-gray-400 block text-[10px]">MILEAGE</span>
+                                <span class="font-bold text-gray-200">12,500 mi</span>
+                            </div>
+                            <div class="bg-brand-dark p-2.5 rounded-lg">
+                                <i class="fa-solid fa-gears text-brand-red mb-1 block"></i>
+                                <span class="text-gray-400 block text-[10px]">TRANS</span>
+                                <span class="font-bold text-gray-200">Automatic</span>
+                            </div>
+                            <div class="bg-brand-dark p-2.5 rounded-lg">
+                                <i class="fa-solid fa-gas-pump text-brand-red mb-1 block"></i>
+                                <span class="text-gray-400 block text-[10px]">FUEL</span>
+                                <span class="font-bold text-gray-200">Gasoline</span>
+                            </div>
+                        </div>
+
+                        <button onclick="openCarModal('BMW M5 Competition', '$108,000', '12,500 mi')" class="w-full mt-6 bg-gray-800 hover:bg-brand-red text-white font-semibold py-3 px-4 rounded-md text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2">
+                            View Vehicle Details <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Vehicle Card 3 -->
+                <div class="car-card bg-brand-card rounded-xl overflow-hidden border border-gray-800 hover:border-gray-700 transition-all duration-300" data-make="Audi" data-type="Coupe">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&w=800&q=80" alt="Audi RS V10 Performance" class="w-full h-full object-cover">
+                        <div class="absolute bottom-4 right-4 bg-brand-darker/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-gray-700">
+                            <span class="heading-font text-2xl font-bold text-white">$164,900</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between text-xs text-gray-400 mb-2">
+                            <span>2021 MODEL</span>
+                            <span class="text-brand-red font-semibold">EXOTIC</span>
+                        </div>
+                        <h3 class="heading-font text-3xl font-bold text-white mb-4">Audi R8 V10 Performance</h3>
+                        
+                        <div class="grid grid-cols-3 gap-2 pt-4 border-t border-gray-800/80 text-center text-xs">
+                            <div class="bg-brand-dark p-2.5 rounded-lg">
+                                <i class="fa-solid fa-gauge-high text-brand-red mb-1 block"></i>
+                                <span class="text-gray-400 block text-[10px]">MILEAGE</span>
+                                <span class="font-bold text-gray-200">8,900 mi</span>
+                            </div>
+                            <div class="bg-brand-dark p-2.5 rounded-lg">
+                                <i class="fa-solid fa-gears text-brand-red mb-1 block"></i>
+                                <span class="text-gray-400 block text-[10px]">TRANS</span>
+                                <span class="font-bold text-gray-200">Dual-Clutch</span>
+                            </div>
+                            <div class="bg-brand-dark p-2.5 rounded-lg">
+                                <i class="fa-solid fa-gas-pump text-brand-red mb-1 block"></i>
+                                <span class="text-gray-400 block text-[10px]">FUEL</span>
+                                <span class="font-bold text-gray-200">Gasoline</span>
+                            </div>
+                        </div>
+
+                        <button onclick="openCarModal('Audi R8 V10 Performance', '$164,900', '8,900 mi')" class="w-full mt-6 bg-gray-800 hover:bg-brand-red text-white font-semibold py-3 px-4 rounded-md text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2">
+                            View Vehicle Details <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. WHY CHOOSE US / ABOUT SECTION -->
+    <section id="about" class="py-24 bg-brand-dark relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Left Image Composition -->
+                <div class="relative">
+                    <div class="rounded-xl overflow-hidden border-2 border-gray-800 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=800&q=80" alt="Master Mechanics" class="w-full h-auto">
+                    </div>
+                    <!-- Badge Overlay -->
+                    <div class="absolute -bottom-8 -right-4 sm:right-8 bg-brand-red text-white p-6 rounded-xl shadow-2xl skew-badge max-w-xs">
+                        <div class="unskew text-center">
+                            <span class="heading-font text-5xl font-bold block leading-none">25+</span>
+                            <span class="text-xs uppercase tracking-widest font-bold">Years of Industry Excellence</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Description Content -->
+                <div>
+                    <span class="text-brand-red uppercase font-bold tracking-widest text-xs">Why Automobil</span>
+                    <h2 class="heading-font text-5xl font-bold uppercase text-white mt-1 leading-tight">
+                        TRUSTED AUTOMOTIVE SALES & MASTER REPAIR SPECIALISTS
+                    </h2>
+                    <div class="w-20 h-1 bg-brand-red mt-3 mb-6"></div>
+                    <p class="text-gray-300 mb-6 text-sm sm:text-base leading-relaxed">
+                        Since 1998, Automobil has set the gold standard in vehicle maintenance and luxury automobile sales. Our ASE-certified technicians operate with state-of-the-art diagnostic platforms to ensure precision engineering and longevity for your automobile.
+                    </p>
+
+                    <!-- Advantages List -->
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-brand-red/20 text-brand-red flex items-center justify-center shrink-0 mt-1">
+                                <i class="fa-solid fa-award text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-base">ASE Master Certified Technicians</h4>
+                                <p class="text-gray-400 text-xs mt-1">Continuous factory training on European, Asian, and Domestic luxury vehicles.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-brand-red/20 text-brand-red flex items-center justify-center shrink-0 mt-1">
+                                <i class="fa-solid fa-shield-cat text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-base">3-Year / 36,000-Mile Warranty</h4>
+                                <p class="text-gray-400 text-xs mt-1">Peace of mind guaranteed on all genuine parts and mechanical service labor.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Counter Stats Bar -->
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-gray-800 text-center">
+                        <div>
+                            <span class="heading-font text-4xl font-bold text-brand-red block">15,400+</span>
+                            <span class="text-xs text-gray-400 uppercase font-medium">Cars Repaired</span>
+                        </div>
+                        <div>
+                            <span class="heading-font text-4xl font-bold text-brand-red block">99.2%</span>
+                            <span class="text-xs text-gray-400 uppercase font-medium">Satisfaction</span>
+                        </div>
+                        <div>
+                            <span class="heading-font text-4xl font-bold text-brand-red block">45+</span>
+                            <span class="text-xs text-gray-400 uppercase font-medium">Expert Staff</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. TESTIMONIALS SECTION -->
+    <section class="py-24 bg-brand-darker relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-red uppercase font-bold tracking-widest text-xs">Client Reviews</span>
+                <h2 class="heading-font text-5xl font-bold uppercase text-white mt-1">WHAT OUR DRIVERS SAY</h2>
+                <div class="w-20 h-1 bg-brand-red mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Review 1 -->
+                <div class="bg-brand-card p-8 rounded-xl border border-gray-800 flex flex-col justify-between relative">
+                    <i class="fa-solid fa-quote-right absolute top-6 right-6 text-3xl text-gray-800"></i>
+                    <div>
+                        <div class="flex text-amber-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6 italic">"Automobil handled the full engine diagnostic and brake service on my Porsche. Transparent pricing, detailed photos sent to my phone, and returned cleaner than when I dropped it off!"</p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-gray-800">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Client" class="w-12 h-12 rounded-full object-cover border border-brand-red">
+                        <div>
+                            <h4 class="text-white font-bold text-sm">Elena Rostova</h4>
+                            <span class="text-xs text-gray-400">Porsche Macan S Owner</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-brand-card p-8 rounded-xl border border-gray-800 flex flex-col justify-between relative">
+                    <i class="fa-solid fa-quote-right absolute top-6 right-6 text-3xl text-gray-800"></i>
+                    <div>
+                        <div class="flex text-amber-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6 italic">"Purchased my certified M5 through Automobil. The purchasing process was completely stress-free with no pushy finance tactics. Highly recommend their sales team."</p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-gray-800">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Client" class="w-12 h-12 rounded-full object-cover border border-brand-red">
+                        <div>
+                            <h4 class="text-white font-bold text-sm">Marcus Vance</h4>
+                            <span class="text-xs text-gray-400">BMW M5 Owner</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-brand-card p-8 rounded-xl border border-gray-800 flex flex-col justify-between relative">
+                    <i class="fa-solid fa-quote-right absolute top-6 right-6 text-3xl text-gray-800"></i>
+                    <div>
+                        <div class="flex text-amber-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6 italic">"Finding a shop that understands classic AMG maintenance is rare. The master techs here treated my car with immense care. Won't take my vehicles anywhere else."</p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-gray-800">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Client" class="w-12 h-12 rounded-full object-cover border border-brand-red">
+                        <div>
+                            <h4 class="text-white font-bold text-sm">David Sterling</h4>
+                            <span class="text-xs text-gray-400">Mercedes-AMG Enthusiast</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. LATEST NEWS / BLOG SECTION -->
+    <section id="news" class="py-24 bg-brand-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-red uppercase font-bold tracking-widest text-xs">Automotive Insights</span>
+                <h2 class="heading-font text-5xl font-bold uppercase text-white mt-1">LATEST NEWS & CARE TIPS</h2>
+                <div class="w-20 h-1 bg-brand-red mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Blog Article 1 -->
+                <article class="bg-brand-card rounded-xl overflow-hidden border border-gray-800 hover:border-gray-700 transition-all">
+                    <div class="relative h-48">
+                        <img src="https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=800&q=80" onerror="this.src='https://placehold.co/800x600/1A1D24/E52727?text=Brake+Rotors+Service'" alt="Brake Rotors Guide" class="w-full h-full object-cover">
+                        <span class="absolute top-4 left-4 bg-brand-red text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase">Maintenance</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs text-gray-400 mb-2">October 24, 2026 • By Tech Team</div>
+                        <h3 class="heading-font text-2xl font-bold text-white hover:text-brand-red transition-colors cursor-pointer mb-2">
+                            5 Warning Signs Your Brake Rotors Need Immediate Service
+                        </h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Learn how to identify squealing noises, pedal vibration, and soft brake pedal response before costly damage occurs.</p>
+                        <a href="#" class="text-brand-red text-xs font-bold uppercase tracking-wider hover:underline">Read Article →</a>
+                    </div>
+                </article>
+
+                <!-- Blog Article 2 -->
+                <article class="bg-brand-card rounded-xl overflow-hidden border border-gray-800 hover:border-gray-700 transition-all">
+                    <div class="relative h-48">
+                        <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=600&q=80" alt="Synthetic Oil" class="w-full h-full object-cover">
+                        <span class="absolute top-4 left-4 bg-brand-red text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase">Tips</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs text-gray-400 mb-2">October 18, 2026 • By Diagnostics</div>
+                        <h3 class="heading-font text-2xl font-bold text-white hover:text-brand-red transition-colors cursor-pointer mb-2">
+                            Conventional vs. Full Synthetic Oil: What Your Engine Needs
+                        </h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Understanding oil viscosity ratings and high-temperature protection for modern turbocharged powertrains.</p>
+                        <a href="#" class="text-brand-red text-xs font-bold uppercase tracking-wider hover:underline">Read Article →</a>
+                    </div>
+                </article>
+
+                <!-- Blog Article 3 -->
+                <article class="bg-brand-card rounded-xl overflow-hidden border border-gray-800 hover:border-gray-700 transition-all">
+                    <div class="relative h-48">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80" alt="Buying Guide" class="w-full h-full object-cover">
+                        <span class="absolute top-4 left-4 bg-brand-red text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase">Buying Guide</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs text-gray-400 mb-2">October 10, 2026 • By Sales Specialist</div>
+                        <h3 class="heading-font text-2xl font-bold text-white hover:text-brand-red transition-colors cursor-pointer mb-2">
+                            What to Inspect When Purchasing a Used Luxury Sports Car
+                        </h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Essential pre-purchase checklist for evaluating service history records and mechanical condition.</p>
+                        <a href="#" class="text-brand-red text-xs font-bold uppercase tracking-wider hover:underline">Read Article →</a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. MODERN FOOTER -->
+    <footer id="footer" class="bg-brand-darker pt-16 pb-8 border-t border-gray-800 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-gray-800">
+                
+                <!-- Col 1: Brand Info -->
+                <div>
+                    <a href="#" class="flex items-center gap-3 mb-4">
+                        <div class="bg-brand-red text-white p-2 rounded-md skew-badge">
+                            <i class="fa-solid fa-car-side text-xl unskew"></i>
+                        </div>
+                        <span class="heading-font text-3xl font-bold tracking-wider text-white">AUTO<span class="text-brand-red">MOBIL</span></span>
+                    </a>
+                    <p class="text-gray-400 text-xs leading-relaxed mb-6">
+                        Your trusted partner for luxury automotive sales, certified computer diagnostics, mechanical repair, and premium detailing.
+                    </p>
+                    <div class="flex space-x-3 text-gray-400">
+                        <a href="#" class="w-9 h-9 rounded-full bg-brand-dark border border-gray-700 flex items-center justify-center hover:bg-brand-red hover:text-white transition-colors"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-brand-dark border border-gray-700 flex items-center justify-center hover:bg-brand-red hover:text-white transition-colors"><i class="fa-brands fa-twitter text-xs"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-brand-dark border border-gray-700 flex items-center justify-center hover:bg-brand-red hover:text-white transition-colors"><i class="fa-brands fa-instagram text-xs"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-brand-dark border border-gray-700 flex items-center justify-center hover:bg-brand-red hover:text-white transition-colors"><i class="fa-brands fa-youtube text-xs"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h4 class="heading-font text-xl font-bold uppercase text-white mb-4">Quick Navigation</h4>
+                    <ul class="space-y-2.5 text-xs text-gray-400">
+                        <li><a href="#services" class="hover:text-brand-red transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-brand-red"></i> Diagnostics & Repair</a></li>
+                        <li><a href="#inventory" class="hover:text-brand-red transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-brand-red"></i> Pre-Owned Fleet</a></li>
+                        <li><a href="#about" class="hover:text-brand-red transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-brand-red"></i> Warranty & Guarantee</a></li>
+                        <li><a href="#quote-modal" onclick="toggleModal()" class="hover:text-brand-red transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-brand-red"></i> Book Service Slot</a></li>
+                        <li><a href="#news" class="hover:text-brand-red transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-brand-red"></i> Auto Maintenance Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Operating Hours & Contact -->
+                <div>
+                    <h4 class="heading-font text-xl font-bold uppercase text-white mb-4">Opening Hours</h4>
+                    <ul class="space-y-2 text-xs text-gray-400 mb-4">
+                        <li class="flex justify-between border-b border-gray-800 pb-1.5">
+                            <span>Monday - Friday:</span>
+                            <span class="text-white font-medium">8:00 AM - 7:00 PM</span>
+                        </li>
+                        <li class="flex justify-between border-b border-gray-800 pb-1.5">
+                            <span>Saturday:</span>
+                            <span class="text-white font-medium">9:00 AM - 5:00 PM</span>
+                        </li>
+                        <li class="flex justify-between pb-1.5">
+                            <span>Sunday:</span>
+                            <span class="text-brand-red font-medium">Closed</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Newsletter -->
+                <div>
+                    <h4 class="heading-font text-xl font-bold uppercase text-white mb-4">Newsletter</h4>
+                    <p class="text-gray-400 text-xs mb-4">Subscribe for special service discounts and newly added luxury car inventory.</p>
+                    <form onsubmit="event.preventDefault(); showSubscribeAlert();" class="space-y-2">
+                        <input type="email" required placeholder="Enter your email" class="w-full bg-brand-dark border border-gray-700 rounded-md py-2.5 px-3 text-xs text-white focus:outline-none focus:border-brand-red">
+                        <button type="submit" class="w-full bg-brand-red hover:bg-brand-darkred text-white font-bold py-2.5 rounded-md text-xs uppercase tracking-wider transition-colors">
+                            Subscribe Now
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright Bar -->
+            <div class="pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 gap-4">
+                <p>&copy; 2026 Automobil Dealership & Repair Center. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-gray-400">Privacy Policy</a>
+                    <a href="#" class="hover:text-gray-400">Terms of Service</a>
+                    <a href="#" class="hover:text-gray-400">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SERVICE APPOINTMENT MODAL -->
+    <div id="booking-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+        <div class="bg-brand-card w-full max-w-xl rounded-xl border border-gray-800 p-6 sm:p-8 relative shadow-2xl">
+            <button onclick="toggleModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="mb-6">
+                <h3 class="heading-font text-3xl font-bold uppercase text-white">BOOK SERVICE APPOINTMENT</h3>
+                <p class="text-xs text-gray-400">Schedule your vehicle maintenance or inspection in seconds.</p>
+            </div>
+
+            <form onsubmit="event.preventDefault(); submitBooking();" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs uppercase font-semibold text-gray-400 mb-1">Your Full Name</label>
+                        <input type="text" required placeholder="John Doe" class="w-full bg-brand-dark border border-gray-700 rounded-md p-3 text-xs text-white focus:outline-none focus:border-brand-red">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase font-semibold text-gray-400 mb-1">Phone Number</label>
+                        <input type="tel" required placeholder="(555) 000-0000" class="w-full bg-brand-dark border border-gray-700 rounded-md p-3 text-xs text-white focus:outline-none focus:border-brand-red">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs uppercase font-semibold text-gray-400 mb-1">Vehicle Year / Make / Model</label>
+                        <input type="text" required placeholder="e.g. 2021 BMW M5" class="w-full bg-brand-dark border border-gray-700 rounded-md p-3 text-xs text-white focus:outline-none focus:border-brand-red">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase font-semibold text-gray-400 mb-1">Required Service</label>
+                        <select class="w-full bg-brand-dark border border-gray-700 rounded-md p-3 text-xs text-white focus:outline-none focus:border-brand-red">
+                            <option>Computer Diagnostics</option>
+                            <option>Synthetic Oil Change</option>
+                            <option>Brake Service & Pad Replacement</option>
+                            <option>Tire Balancing & Alignment</option>
+                            <option>Full Vehicle Inspection</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs uppercase font-semibold text-gray-400 mb-1">Preferred Date</label>
+                    <input type="date" required class="w-full bg-brand-dark border border-gray-700 rounded-md p-3 text-xs text-white focus:outline-none focus:border-brand-red">
+                </div>
+
+                <button type="submit" class="w-full bg-brand-red hover:bg-brand-darkred text-white font-bold py-3 rounded-md text-xs uppercase tracking-wider transition-colors mt-2">
+                    Confirm Appointment Request
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- NOTIFICATION ALERT BOX (Custom Toast) -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden bg-brand-card border-l-4 border-brand-red text-white p-4 rounded-r-md shadow-2xl max-w-sm flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-brand-red text-xl"></i>
+        <div class="text-xs">
+            <h5 class="font-bold uppercase text-white" id="toast-title">Success</h5>
+            <p id="toast-msg" class="text-gray-300">Action completed successfully.</p>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Hero Slider Logic
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.remove('opacity-0');
+                    slide.classList.add('opacity-100');
+                } else {
+                    slide.classList.remove('opacity-100');
+                    slide.classList.add('opacity-0');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        // Auto transition slider
+        setInterval(nextSlide, 6000);
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Modal Functionality
+        function toggleModal() {
+            const modal = document.getElementById('booking-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        function submitBooking() {
+            toggleModal();
+            showToast("Appointment Submitted", "Our service advisor will call you to confirm your time slot.");
+        }
+
+        function showSubscribeAlert() {
+            showToast("Subscribed!", "Thank you for subscribing to Automobil updates.");
+        }
+
+        function openCarModal(title, price, mileage) {
+            showToast("Vehicle Inquiry", `Inquiry registered for ${title} (${price}). Our sales team will reach out shortly.`);
+        }
+
+        // Filter Cars
+        function filterVehicles() {
+            const make = document.getElementById('filter-make').value;
+            const type = document.getElementById('filter-type').value;
+            const cards = document.querySelectorAll('.car-card');
+
+            cards.forEach(card => {
+                const cardMake = card.getAttribute('data-make');
+                const cardType = card.getAttribute('data-type');
+                
+                const matchesMake = (make === 'all' || cardMake === make);
+                const matchesType = (type === 'all' || cardType === type);
+
+                if (matchesMake && matchesType) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            showToast("Search Filter Applied", "Vehicle listings have been updated below.");
+        }
+
+        // Custom Toast Notification System
+        function showToast(title, message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-title').innerText = title;
+            document.getElementById('toast-msg').innerText = message;
+            
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
